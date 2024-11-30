@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sorting Arrays Algorithms</title>
+    <style>
+      /* Apply font globally */
+      body {
+        font-family: "Merriweather", serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-black">
+      <h1 class="text-center text-[50px] font-bold text-white">
+        Sorting Arrays
+      </h1>
+    </div>
+
+    <div class="mt-10 bg-[#ddd] w-[500px] mx-auto h-full rounded-lg p-4">
+      <div>
+        <label for="arrayInput" class="block text-lg font-semibold mb-2">
+          Enter Array Values:
+        </label>
+        <input
+          id="arrayInput"
+          name="arrayInput"
+          class="w-full h-[50px] px-2 rounded-lg focus:outline-none"
+          type="text"
+          placeholder="Enter numbers separated by comma"
+        />
+        <p id="errorMessage" class="text-red-500 mt-2"></p>
+      </div>
+
+      <div class="mt-2 flex justify-center align-center gap-5">
+        <button
+          class="bg-[#eee] p-2 rounded-lg hover:bg-[#ccc]"
+          onclick="processInput('ascending')"
+        >
+          Sort Ascending Order
+        </button>
+        <button
+          class="bg-[#eee] p-2 rounded-lg hover:bg-[#ccc]"
+          onclick="processInput('descending')"
+        >
+          Sort Descending Order
+        </button>
+      </div>
+
+      <!-- Arrays Result -->
+      <div class="mt-5 text-center">
+        <h1 class="text-center text-[20px] font-bold">Result</h1>
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <script src="array.js"></script>
+  </body>
+</html>
