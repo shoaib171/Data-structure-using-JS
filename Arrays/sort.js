@@ -1,28 +1,35 @@
-// Question #01: Sort an single Array....
+function optimizedBubbleSort(arr) {
+  let swapped;
+  for (let i = 0; i < arr.length; i++) {
+    swapped = false;
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Swap
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        swapped = true;
+      }
+    }
+    // If no swapping occurred, array is already sorted
+    if (!swapped) break;
+  }
+  return arr;
+}
 
-// Step 1: Define an array of numbers
-const numbers = [42, 23, 16, 15, 8, 4, 0];
+function measureSortPerformance(arr, sortFunction) {
+  // Create a copy of the array to avoid modifying the original
+  const arrCopy = [...arr];
 
-// Step 2: Sort the array using the sort() method
-// The sort() method expects a compare function to sort numbers properly.
-//  Logic part
-//  -- a,b are the two first index of array both compares the value of "a" and "b" like
-//    a < b   --- a comes first
-//    a > b   --- b comes first
-//    a === b   remain same unchanged
-//    a === 0   a remains unchanged
-//
-numbers.sort(); // its an ascending order...
-// numbers.sort((a, b) => a - b);
-// numbers.sort((a, b) => b- a);   // its an descending order...
-// Step 3: Print the sorted array
-console.log("Sorted Array:", numbers);
+  const start = performance.now();
+  const sortedArr = sortFunction(arrCopy);
+  const end = performance.now();
 
-let fruits = ["banana", "Apple", "cherry"];
-// fruits.sort(); // ["Apple", "banana", "cherry"]
-fruits.sort((a, b) => a.localeCompare(b));
-console.log(fruits, "fruits");
+  console.log(`Sort took ${end - start} milliseconds`);
+  return sortedArr;
+}
 
+// Example usage
+const originalArray = [10, 20, 3, 2, 7, 4, 6, 1];
+const sortedArray = measureSortPerformance(originalArray, optimizedBubbleSort);
 
-// using data structure...
-  
+console.log("Original Array:", originalArray);
+console.log("Sorted Array:", sortedArray);
